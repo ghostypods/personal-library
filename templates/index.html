@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Library</title>
+
+    <style>
+      @font-face {
+        font-family: ThaleahFat;
+        src: url(ThaleahFat.ttf);
+      }
+      body{
+            text-align: center;
+      }
+      h1 {
+        font-family: ThaleahFat;
+        font-size: 50px;
+      }
+      ul {
+        text-align: center;
+        list-style-position: inside;
+        font-family: Arial;
+        list-style-type: none;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h1>My Library</h1>
+
+    {% for book in books %}
+
+        <ul>
+          <li>
+            <button><a href="{{ url_for('delete', book_id=book.id) }}">Delete</a></button>
+            {{ book.title }} - {{ book.author }} - {{ book.rating }}/10.0
+            <button><a href="{{ url_for('update_rating', book_id=book.id) }}">Edit Rating</a></button>
+          </li>
+        </ul>
+
+    {% endfor %}
+
+
+    <button><a href="{{ url_for('add') }}">Add New Book</a></button>
+
+  </body>
+</html>

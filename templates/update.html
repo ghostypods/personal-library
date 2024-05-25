@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Rating</title>
+
+    <style>
+      body{
+            text-align: center;
+      }
+      form {
+        display: table, inline-block;
+      }
+      label {
+        display: table-row, block;
+      }
+      input {
+        display: table-row;
+        margin-bottom: 5px;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    </style>
+
+</head>
+<body>
+    <form action="{{ url_for('update_rating', book_id=book.id) }}" method="POST">
+        <p>{{ book.title }}</p>
+        <p>{{ book.author }}</p>
+
+        <label>New Rating</label>
+        <input id="new-rating" name="new-rating" placeholder="Enter Rating"/>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+    <button><a href="{{ url_for('home') }}">Go Back</a></button>
+</body>
+</html>
